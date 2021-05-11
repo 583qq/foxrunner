@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
        healthIcons = new List<GameObject>();
 
        int currentHealth = GameReferences.player.health;
-       int maxHealth = GameReferences.player.maxHealth;
+       maxHealth = GameReferences.player.maxHealth;
         
        for(int i = 0; i < currentHealth; i++)
        {
@@ -41,7 +41,7 @@ public class HealthBar : MonoBehaviour
 
         if(healthIconsCount < 1)
         {
-            Debug.Log("No Icons to remove.");
+            Debug.Log("No Icons to remove. We are dead probably.");
             return;
         }
 
@@ -51,7 +51,8 @@ public class HealthBar : MonoBehaviour
             {
                 Destroy(healthIcons[i]);
             }
-            healthIcons = new List<GameObject>();
+
+            healthIcons.Clear();
 
             return;
         }
@@ -68,6 +69,10 @@ public class HealthBar : MonoBehaviour
     {
         if(healthIconsCount == maxHealth)
             return;
+
+
+        if(healthIconsCount + value > maxHealth)
+            value = maxHealth - healthIconsCount;
 
         Debug.Log($"Adding {value} health icons.");
 
