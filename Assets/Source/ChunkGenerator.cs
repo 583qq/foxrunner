@@ -44,7 +44,7 @@ public class ClassicChunkGenerator : IChunkGenerator
         GameObject chunkGO = GameObject.Instantiate(selectedPrefab, position, Quaternion.identity, parent);
 
         // Destroy first 
-        GameObject.Destroy(_chunkObjects.First.Value._baseRoadChunkObject);
+        _chunkObjects.First.Value.Dispose();
         _chunkObjects.RemoveFirst();
 
         RoadChunkObject chunk = new RoadChunkObject(chunkGO);

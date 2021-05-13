@@ -1,30 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Health), typeof(Score))]
 public class Player : MonoBehaviour
 {
     [SerializeField] LayerMask groundLayer;
     private int groundLayerNum;
 
     private Animator _animator;
-    [Header("References")]
-    [SerializeField] private Text _pointsText;
-    [SerializeField] private HealthBar _healthBar;
 
     private bool isGrounded;
 
     [Header("Settings")]
     [SerializeField] private float _speed;
     [SerializeField] private Vector3 _startOffset;
-    [SerializeField] private int healthMaximum;
-    
-    [HideInInspector] public int maxHealth => healthMaximum;
-    public int health {get; private set;}
-    public int points {get; private set;}
+
+    private Health _health;
+    public Health health => _health;
+
+    private Score _score;
+    public Score score => _score;
 
 
     [HideInInspector] public float maxDistance;   // Road & player. Refactor
@@ -52,9 +50,10 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        health = healthMaximum;
-
         groundLayerNum = GameUtilities.GetLayerNumber(groundLayer);
+
+        _health = GetComponent<Health>();
+        _score = GetComponent<Score>();
         _animator = GetComponent<Animator>();
     }
 
@@ -64,6 +63,7 @@ public class Player : MonoBehaviour
         
         _animator.Play("Run");
     }
+
 
     void Update()
     {
@@ -79,6 +79,7 @@ public class Player : MonoBehaviour
         // Move Forward
         transform.position += Vector3.forward * _speed * Time.deltaTime;
 
+        // To-do: method rename
         GetDistancePoints();
     }
 
@@ -172,6 +173,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
+        // >_<
         isGrounded = Physics.CheckSphere(transform.position, 0.001f, groundLayer.value, QueryTriggerInteraction.Ignore);
 
         float height = Mathf.Lerp(transform.position.y, _jump.y, _speed * Time.deltaTime);
@@ -217,37 +219,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AddPoints(int points) 
-    {
-        this.points += points;
-        _pointsText.text = this.points.ToString();
-    }
 
-    public void TakeDamage(int value)
-    {
-        if(health - value < 0)
-        {
-            health = 0;
-            value = health;
-        }
-        else
-            health -= value;
+    public void AddPoints(int points) => score.Add(points);
 
-        _healthBar.RemoveIcon(value);
-    }
-
-    public void Heal(int value)
-    {
-        Debug.Log($"Trying to heal: {value}");
-
-        if((health + value) > healthMaximum)
-        {
-            health = healthMaximum;
-            value = healthMaximum - health;
-        }
-        else
-            health += value;
-        
-        _healthBar.AddIcon(value);
-    }
+    public void TakeDamage(int value) => health.TakeDamage(value);
+    public void Heal(int value) => health.Restore(value);
 }

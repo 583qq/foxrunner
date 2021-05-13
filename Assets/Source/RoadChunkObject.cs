@@ -13,6 +13,9 @@ public class RoadChunkObject
         _baseRoadChunkObject = basePrefab;
     }
 
+    public void Dispose() => GameObject.Destroy(_baseRoadChunkObject);
+    public bool isDisposed => _baseRoadChunkObject is null ? true : false;
+
     public void GenerateBuns(IBunGenerator generator)
     {
         generator.GenerateBuns(_baseRoadChunkObject.transform);

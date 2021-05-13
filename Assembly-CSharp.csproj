@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{d15b2538-beef-dcf4-3c26-1d0d121720a5}</ProjectGuid>
+    <ProjectGuid>{e1d6c1c0-dfe9-3b4e-1b96-fc9001513436}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -36,21 +36,50 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Source\RoadChunkObject.cs" />
-     <Compile Include="Assets\Source\Road.cs" />
-     <Compile Include="Assets\Source\CameraMovement.cs" />
-     <Compile Include="Assets\Source\Player.cs" />
-     <Compile Include="Assets\Source\IGameBun.cs" />
-     <Compile Include="Assets\Source\Buns\Coin.cs" />
-     <Compile Include="Assets\Source\Settings.cs" />
-     <Compile Include="Assets\Source\Buns.cs" />
-     <Compile Include="Assets\Source\HealthBar.cs" />
-     <Compile Include="Assets\Source\Buns\Bomb.cs" />
      <Compile Include="Assets\Source\Buns\Flask.cs" />
-     <Compile Include="Assets\Source\Utils.cs" />
-     <Compile Include="Assets\Source\GameReferences.cs" />
-     <Compile Include="Assets\Source\BunGenerator.cs" />
+     <Compile Include="Assets\Source\Score.cs" />
+     <Compile Include="Assets\Source\IGameBun.cs" />
+     <Compile Include="Assets\Source\View\HealthView.cs" />
+     <Compile Include="Assets\Source\Health.cs" />
      <Compile Include="Assets\Source\ChunkGenerator.cs" />
+     <Compile Include="Assets\Source\GameReferences.cs" />
+     <Compile Include="Assets\Source\Settings.cs" />
+     <Compile Include="Assets\Source\View\ScoreView.cs" />
+     <Compile Include="Assets\Source\RoadChunkObject.cs" />
+     <Compile Include="Assets\Source\BunGenerator.cs" />
+     <Compile Include="Assets\Source\CameraMovement.cs" />
+     <Compile Include="Assets\Source\Menu\LoseCondition.cs" />
+     <Compile Include="Assets\Source\Buns.cs" />
+     <Compile Include="Assets\Source\Player.cs" />
+     <Compile Include="Assets\Source\Road.cs" />
+     <Compile Include="Assets\Source\View\HealthViewModel.cs" />
+     <Compile Include="Assets\Source\Utils.cs" />
+     <Compile Include="Assets\Source\Buns\Coin.cs" />
+     <Compile Include="Assets\Source\View\ScoreViewModel.cs" />
+     <Compile Include="Assets\Source\Buns\Bomb.cs" />
+     <Compile Include="Assets\Source\Menu\Menu.cs" />
+     <Compile Include="Assets\Source\Menu\UpgradesMenu.cs" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -625,31 +654,31 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.7f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:/Users/Arcanelight/Unity/EzRacing/EzRacing/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>C:/Users/Arcanelight/Unity/FoxRunner/FoxRunner/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
